@@ -1,1 +1,166 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Work in Progress</title></head><body style="font-family:system-ui;display:grid;place-items:center;min-height:100vh;margin:0"><h1>haschischcafe.de</h1></body></html>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haschisch Café | Informationen zum Cannabisgesetz (CanG) in Deutschland</title>
+    <meta name="description" content="Eine neutrale, sachliche Informationsseite zum deutschen Cannabisgesetz (CanG). Erfahren Sie, was für Erwachsene bezüglich Besitz, Eigenanbau und Konsum erlaubt ist.">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Haschisch Café | Informationen zum Cannabisgesetz (CanG)">
+    <meta property="og:description" content="Sachliche Informationen zur Teillegalisierung von Cannabis in Deutschland. Regeln für Besitz, Anbau und Konsum im Überblick.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://haschischcafe.de/">
+    <meta property="og:locale" content="de_DE">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Age Gate Modal Overlay -->
+    <div id="age-gate-overlay" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="age-gate-title">
+        <div class="modal">
+            <h2 id="age-gate-title">Altersprüfung</h2>
+            <p>Diese Webseite enthält Informationen über Cannabis und das deutsche Cannabisgesetz. Der Zugang ist Personen ab 18 Jahren vorbehalten.</p>
+            <p><strong>Sind Sie mindestens 18 Jahre alt?</strong></p>
+            <div class="modal-buttons">
+                <button id="btn-age-yes" class="btn-primary">Ja, ich bin 18 oder älter</button>
+                <button id="btn-age-no" class="btn-secondary">Nein, ich bin jünger</button>
+            </div>
+            <div id="age-error" class="error-message" aria-live="polite"></div>
+        </div>
+    </div>
+
+    <header role="banner">
+        <div class="container">
+            <a href="/" class="site-title">Haschisch Café</a>
+            <p class="site-subtitle">Sachliche Informationen zum Cannabisgesetz in Deutschland</p>
+            <nav role="navigation" aria-label="Hauptnavigation">
+                <ul>
+                    <li><a href="#was-ist-erlaubt">Was ist erlaubt?</a></li>
+                    <li><a href="#besitz-und-anbau">Besitz & Anbau</a></li>
+                    <li><a href="#anbauvereinigungen">Anbauvereinigungen</a></li>
+                    <li><a href="#konsum-und-jugendschutz">Konsumregeln</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main role="main" class="container">
+
+        <div class="callout warning">
+            <h3>Wichtiger Hinweis</h3>
+            <p>Das Haschisch Café ist eine rein informative Plattform. <strong>Wir verkaufen kein Cannabis, betreiben keinen Social Club und fördern den Konsum nicht.</strong> Diese Website bietet keine Rechtsberatung. Für verbindliche rechtliche Auskünfte wenden Sie sich bitte an einen Anwalt oder offizielle Regierungsstellen. Der Konsum von Cannabis ist mit gesundheitlichen Risiken verbunden.</p>
+        </div>
+
+        <section aria-labelledby="intro-heading">
+            <h1 id="intro-heading">Das Cannabisgesetz (CanG) im Überblick</h1>
+            <p>Am 1. April 2024 trat in Deutschland das Konsumcannabisgesetz (KCanG) in Kraft. Es markiert einen Paradigmenwechsel in der Drogenpolitik des Bundes: Der Besitz und Anbau von Cannabis für den Eigenkonsum durch Erwachsene wurde unter bestimmten Auflagen entkriminalisiert. Ziel des Gesetzes ist es, den Schwarzmarkt einzudämmen, die Qualität von Cannabis zu kontrollieren, die Weitergabe verunreinigter Substanzen zu verhindern und den Gesundheits- sowie Jugendschutz zu stärken.</p>
+            <p>Auf dieser Seite finden Sie eine sachliche und neutrale Zusammenfassung der wichtigsten Regelungen. Es ist von zentraler Bedeutung, die gesetzlichen Grenzen genau zu kennen, da Verstöße weiterhin mit empfindlichen Bußgeldern oder strafrechtlichen Konsequenzen geahndet werden können.</p>
+        </section>
+
+        <section id="was-ist-erlaubt" class="scenario-selector" aria-labelledby="scenario-heading">
+            <h2 id="scenario-heading">Interaktiver Wegweiser: Was ist erlaubt?</h2>
+            <p>Wählen Sie eine Situation aus der Liste, um schnell die geltenden rechtlichen Rahmenbedingungen zu sehen.</p>
+
+            <div class="scenario-controls">
+                <label for="scenario-select">Situation auswählen:</label>
+                <select id="scenario-select" name="scenario">
+                    <option value="default">-- Bitte wählen --</option>
+                    <option value="public_possession">Besitz unterwegs (Öffentlichkeit)</option>
+                    <option value="private_possession">Besitz zu Hause (Privatbereich)</option>
+                    <option value="home_grow">Eigener Anbau von Pflanzen</option>
+                    <option value="public_consumption">Konsum im öffentlichen Raum</option>
+                    <option value="social_clubs">Mitgliedschaft in einem Social Club</option>
+                    <option value="driving">Autofahren und Verkehr</option>
+                </select>
+            </div>
+
+            <div id="scenario-result" class="scenario-result" aria-live="polite">
+                <h4>Bitte wählen Sie eine Situation aus</h4>
+                <p>Wählen Sie oben eine Situation aus, um zu erfahren, was nach dem aktuellen Cannabisgesetz (CanG) in Deutschland erlaubt ist.</p>
+            </div>
+        </section>
+
+        <section id="besitz-und-anbau" aria-labelledby="besitz-heading">
+            <h2 id="besitz-heading">Regelungen zu Besitz und privatem Eigenanbau</h2>
+
+            <h3>Besitzmengen für Erwachsene</h3>
+            <p>Das Gesetz unterscheidet strikt zwischen dem privaten Raum (Wohnsitz) und dem öffentlichen Raum. Für Erwachsene ab 18 Jahren gelten folgende Freimengen für den Eigenkonsum:</p>
+            <ul>
+                <li><strong>In der Öffentlichkeit:</strong> Das Mitführen von bis zu 25 Gramm getrocknetem Cannabis ist straffrei.</li>
+                <li><strong>Am privaten Wohnsitz:</strong> Der Besitz von bis zu 50 Gramm getrocknetem Cannabis ist erlaubt.</li>
+            </ul>
+            <p>Wird diese Menge leicht überschritten (bis 30g öffentlich bzw. 60g privat), handelt es sich um eine Ordnungswidrigkeit. Bei deutlich größeren Mengen drohen Strafverfahren. Wichtig: Jede Form der Weitergabe von Cannabis – auch unentgeltlich – an Dritte außerhalb von Anbauvereinigungen bleibt illegal. Die Abgabe an Minderjährige wird mit erheblichen Freiheitsstrafen geahndet.</p>
+
+            <h3>Privater Eigenanbau</h3>
+            <p>Der private Eigenanbau ist für Erwachsene an ihrem Wohnsitz erlaubt, unterliegt jedoch strengen Vorgaben:</p>
+            <ul>
+                <li>Maximal <strong>drei lebende, weibliche Cannabispflanzen</strong> pro erwachsener Person im Haushalt sind zulässig.</li>
+                <li>Der Anbau muss zwingend vor dem Zugriff durch Kinder, Jugendliche und Dritte geschützt werden. Dies bedeutet in der Regel, dass Pflanzen in abschließbaren Räumen, Schränken oder Gewächshäusern gehalten werden müssen.</li>
+                <li>Das geerntete Cannabis ist ausschließlich für den Eigenkonsum des Anbauenden bestimmt. Die Weitergabe an Mitbewohner, Nachbarn oder Freunde ist verboten.</li>
+            </ul>
+        </section>
+
+        <section id="anbauvereinigungen" aria-labelledby="clubs-heading">
+            <h2 id="clubs-heading">Anbauvereinigungen (Cannabis Social Clubs)</h2>
+            <p>Seit dem 1. Juli 2024 ist die Gründung und der Betrieb von nicht-gewinnorientierten Anbauvereinigungen (oft als "Social Clubs" bezeichnet) möglich. Diese Vereine benötigen eine behördliche Erlaubnis und unterliegen strengen behördlichen Kontrollen.</p>
+
+            <p>Die Struktur und Funktionsweise der Vereinigungen ist detailliert reguliert:</p>
+            <ul>
+                <li>Ein Verein darf maximal 500 Mitglieder haben. Die Mitgliedschaft muss für mindestens drei Monate abgeschlossen werden.</li>
+                <li>Mitglieder müssen volljährig sein und ihren Wohnsitz oder gewöhnlichen Aufenthalt in Deutschland haben.</li>
+                <li>Die Abgabe von Cannabis an Mitglieder ist auf maximal <strong>25 Gramm pro Tag und 50 Gramm pro Monat</strong> beschränkt.</li>
+                <li>Für Heranwachsende (Personen zwischen 18 und 21 Jahren) gilt eine reduzierte Abgabemenge von 30 Gramm pro Monat sowie eine Begrenzung des THC-Gehalts auf maximal 10 Prozent. Dies dient dem Schutz der noch in der Entwicklung befindlichen Gehirnstrukturen.</li>
+            </ul>
+            <p>Der Konsum von Cannabis innerhalb der Räumlichkeiten der Anbauvereinigung sowie in einem Abstand von 100 Metern zum Eingangsbereich ist gesetzlich untersagt. Die Clubs dienen ausschließlich dem gemeinschaftlichen Anbau und der geordneten Weitergabe an Mitglieder.</p>
+        </section>
+
+        <section id="konsum-und-jugendschutz" aria-labelledby="konsum-heading">
+            <h2 id="konsum-heading">Konsumverbote, Jugendschutz und Prävention</h2>
+
+            <h3>Wo der Konsum verboten ist</h3>
+            <p>Um Nichtkonsumierende, insbesondere Kinder und Jugendliche, zu schützen, gibt es weitreichende Konsumverbotszonen. Der Konsum von Cannabis ist in Sichtweite (in der Regel definiert als ein Radius von 100 Metern um den Eingangsbereich) von folgenden Einrichtungen verboten:</p>
+            <ul>
+                <li>Schulen, Kindergärten und Kindertagesstätten</li>
+                <li>Kinderspielplätzen</li>
+                <li>Jugendzentren und anderen Einrichtungen der Kinder- und Jugendhilfe</li>
+                <li>Öffentlich zugänglichen Sportstätten (z.B. Schwimmbäder, Fußballplätze)</li>
+            </ul>
+            <p>Zudem ist der Konsum in Fußgängerzonen in der Zeit zwischen 7:00 Uhr und 20:00 Uhr untersagt. Unabhängig vom Ort ist der Konsum in unmittelbarer Gegenwart von Personen unter 18 Jahren ausnahmslos verboten.</p>
+
+            <h3>Jugendschutz und Harm Reduction</h3>
+            <p>Der Schutz von Minderjährigen ist eine tragende Säule des Cannabisgesetzes. Für Jugendliche unter 18 Jahren bleiben Erwerb, Besitz und Anbau vollständig verboten. Werden Minderjährige mit Cannabis angetroffen, wird das Cannabis konfisziert und die Sorgeberechtigten sowie gegebenenfalls das Jugendamt werden informiert. Häufig folgt die Verpflichtung zur Teilnahme an Frühinterventionsprogrammen.</p>
+
+            <p>Für Erwachsene, die sich für den Konsum entscheiden, greifen Prinzipien der Schadensminderung (Harm Reduction). Wer Cannabis konsumiert, sollte dies risikoarm tun, sich über den THC-Gehalt informieren und den Konsum nicht mit Alkohol oder anderen Substanzen mischen.</p>
+
+            <div class="callout info">
+                <h3>Hilfe und weiterführende offizielle Informationen</h3>
+                <p>Wenn Sie Fragen zum eigenen Konsum haben, Beratung suchen oder sich offiziell informieren möchten, empfehlen wir folgende staatliche Quellen:</p>
+                <ul>
+                    <li><strong>Bundesministerium für Gesundheit (BMG):</strong> <a href="https://www.bundesgesundheitsministerium.de/themen/cannabis" target="_blank" rel="noopener noreferrer">FAQ zum Cannabisgesetz</a></li>
+                    <li><strong>Bundeszentrale für gesundheitliche Aufklärung (BZgA):</strong> Informationsportal <a href="https://www.infos-cannabis.de/" target="_blank" rel="noopener noreferrer">infos-cannabis.de</a></li>
+                    <li><strong>Telefonische Suchtberatung der BZgA:</strong> 0221 / 89 20 31 (anonym und kostenfrei)</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <footer role="contentinfo">
+        <div class="container">
+            <p>&copy; 2024 Haschisch Café. Eine neutrale Informationsseite.</p>
+            <nav aria-label="Fußzeilen-Navigation">
+                <ul>
+                    <li><a href="impressum.html">Impressum</a></li>
+                    <li><a href="datenschutz.html">Datenschutz</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

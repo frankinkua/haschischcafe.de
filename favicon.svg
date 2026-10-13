@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Coffee-house calm: Muted olive background -->
+  <circle cx="50" cy="50" r="50" fill="#6b705c" />
+
+  <!-- Stylized leaf/cup motif in cream -->
+  <path d="M50 25 C30 25 25 45 25 60 C25 80 40 85 50 85 C60 85 75 80 75 60 C75 45 70 25 50 25 Z" fill="#fdfbf7" />
+  <path d="M50 85 C45 70 45 40 50 25 C55 40 55 70 50 85 Z" fill="#6b705c" opacity="0.3" />
+
+  <!-- Steam / abstract leaf veins -->
+  <path d="M40 35 C45 45 35 55 40 65" stroke="#6b705c" stroke-width="3" fill="none" stroke-linecap="round" />
+  <path d="M60 35 C55 45 65 55 60 65" stroke="#6b705c" stroke-width="3" fill="none" stroke-linecap="round" />
+  <path d="M50 45 C48 55 52 65 50 75" stroke="#6b705c" stroke-width="3" fill="none" stroke-linecap="round" />
+</svg>
